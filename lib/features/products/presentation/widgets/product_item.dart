@@ -4,9 +4,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:route_task_flutter/core/utils/app_colors.dart';
 import 'package:route_task_flutter/core/utils/styles.dart';
+import 'package:route_task_flutter/features/products/data/models/ProductModel.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 class ProductItem extends StatelessWidget {
-  const ProductItem({super.key});
+  final Products? products;
+
+  const ProductItem({super.key, required this.products});
 
   @override
   Widget build(BuildContext context) {
@@ -26,9 +30,12 @@ class ProductItem extends StatelessWidget {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15.r),
                     ),
-                    child: Image(
-                      image: AssetImage("assets/images/Frame.png"),
-                      width: 250.w,
+                    child: CachedNetworkImage(
+                      imageUrl: products!.images![0],
+                      fit: BoxFit.fill,
+                      width: double.infinity,
+                      errorWidget: (context, url, error) =>
+                          const Icon(Icons.error_outline, size: 40),
                     ),
                   ),
                   Padding(
@@ -64,7 +71,7 @@ class ProductItem extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.only(left: 8.w),
                   child: Text(
-                    "Nike Air Jordon Nike shoes flexible for wo...",
+                    products!.title ?? "",
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                     style: BodyTextStyle.fontNormal,
@@ -74,15 +81,14 @@ class ProductItem extends StatelessWidget {
                   children: [
                     SizedBox(width: 8.w),
                     Text(
-                      "EGP 1,200 ",
+                      "EGP ${products?.price}",
                       style: BodyTextStyle.fontNormal,
                     ),
                     SizedBox(width: 16.w),
                     Text(
-                      "1200 EGP",
+                      "${((((products?.discountPercentage ?? 0) / 100) * (products!.price ?? 0)) + products!.price!).round()} EGP",
                       style: BodyTextStyle.fontNormal.copyWith(
-                        decoration: TextDecoration.lineThrough,
-                      ),
+                          decoration: TextDecoration.lineThrough),
                     ),
                   ],
                 ),
@@ -103,7 +109,7 @@ class ProductItem extends StatelessWidget {
                         width: 4.w,
                       ),
                       Text(
-                        "(4.8)",
+                        "(${products!.rating})",
                         style: BodyTextStyle.fontNormal.copyWith(
                           fontSize: 12,
                         ),
