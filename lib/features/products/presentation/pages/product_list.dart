@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:route_task_flutter/core/utils/app_colors.dart';
+import 'package:route_task_flutter/features/products/presentation/widgets/product_item.dart';
 
 class ProductListScreen extends StatelessWidget {
   const ProductListScreen({super.key});
@@ -12,7 +13,7 @@ class ProductListScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColors.whiteColor,
       appBar: AppBar(
-        toolbarHeight: 100,
+        toolbarHeight: 90.h,
         backgroundColor: Colors.transparent,
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -54,7 +55,8 @@ class ProductListScreen extends StatelessWidget {
                 SizedBox(
                   width: 20,
                 ),
-                Container(
+                InkWell(
+                  onTap: () {},
                   child: Icon(
                     Icons.shopping_cart_outlined,
                     color: AppColors.blueColor,
@@ -64,6 +66,21 @@ class ProductListScreen extends StatelessWidget {
               ],
             ),
           ],
+        ),
+      ),
+      body: Padding(
+        padding: EdgeInsets.all(10.w.h),
+        child: GridView.builder(
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            childAspectRatio: (192 / 237),
+            crossAxisCount: 2,
+            mainAxisSpacing: 16.h,
+            crossAxisSpacing: 16.w,
+          ),
+          itemBuilder: (context, index) {
+            return ProductItem();
+          },
+          itemCount: 8,
         ),
       ),
     );
