@@ -92,9 +92,9 @@ class Products {
   String? title;
   String? description;
   String? category;
-  double? price;
-  double? discountPercentage;
-  double? rating;
+  num? price;
+  num? discountPercentage;
+  num? rating;
   int? stock;
   List<String>? tags;
   String? brand;
@@ -219,9 +219,9 @@ class Dimensions {
     height = json['height'];
     depth = json['depth'];
   }
-  double? width;
-  double? height;
-  double? depth;
+  num? width;
+  num? height;
+  num? depth;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
