@@ -3,10 +3,10 @@ import 'package:route_task_flutter/core/errors/failure.dart';
 import 'package:route_task_flutter/features/products/data/models/ProductModel.dart';
 import 'package:route_task_flutter/features/products/domain/repositories/product_list_repo.dart';
 
-class ProductListUseCase {
+class GetProductListUseCase {
   ProductListRepo productListRepo;
 
-  ProductListUseCase(this.productListRepo);
+  GetProductListUseCase(this.productListRepo);
 
   Future<Either<Failures, ProductModel>> call() =>
       productListRepo.getProductList();
