@@ -1,16 +1,54 @@
-# Route Task Flutter
+# Route Task Flutter App
 
-A new Flutter project.
+A Flutter project showcasing a product listing app with a clean UI, BLoC architecture for state management, and network interactions.
+
+## Features
+
+- **Product Listing:** Displays a grid of products with image, title, price, discounts, ratings, and actions (add to cart, favorites).
+- **BLoC Architecture:** Implements Business Logic Component (BLoC) pattern for organized state management and reactive UI updates.
+- **Network Calls:** Fetches product data from a remote source using Dio and handles errors gracefully.
+- **Caching:** Uses `cached_network_image` to optimize image loading and improve performance.
+- **Responsive Design:**  Utilizes `flutter_screenutil` for a consistent UI experience across different screen sizes.
+
+## Project Structure
+
+lib/
+├── config/
+│   ├── language/
+│   ├── routes/
+│   └── themeing/
+├── core/
+│   ├── api/
+│   ├── cache/
+│   ├── errors/
+│   ├── network/
+│   └── utils/
+└── features/
+└── products/
+├── data/
+├── domain/
+└── presentation/
+├── bloc/
+├── pages/
+└── widgets/
+
+## Screenshots
+
+[Image of Product List Screen]
+![Product List](assets/images/Image1.png)
+
+[Image of Favourite and add to cart actions]
+![Product List](assets/images/Image2.png)
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+**Prerequisites**
 
-A few resources to get you started if this is your first Flutter project:
+- Flutter SDK (>=3.3.4 <4.0.0)
+- Android Studio or Visual Studio Code
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+**Installation**
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+1. Clone this repository.
+2. Run `flutter pub get` to install dependencies.
+3. Run the app on an emulator or physical device.
