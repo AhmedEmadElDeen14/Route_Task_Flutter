@@ -34,11 +34,12 @@ lib/
 
 ## Screenshots
 
-[Image of Product List Screen]
-![Product List](assets/images/Image1.png)
 
-[Image of Favourite and add to cart actions]
 ![Product List](assets/images/Image2.png)
+[Image of Product List Screen]
+
+![Product List](assets/images/Image1.png)
+[Image of Favourite and add to cart actions]
 
 ## Getting Started
 
