@@ -15,10 +15,10 @@ A Flutter project showcasing a product listing app with a clean UI, BLoC archite
 
 
 ![Product List](assets/images/Image2.png)
-[Image of Product List Screen]
+*Image of Product List Screen*
 
 ![Product List](assets/images/Image1.png)
-[Image of Favourite and add to cart actions]
+*Image of Favourite and add to cart actions*
 
 ## Getting Started
 
