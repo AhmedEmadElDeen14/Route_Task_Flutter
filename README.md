@@ -10,27 +10,6 @@ A Flutter project showcasing a product listing app with a clean UI, BLoC archite
 - **Caching:** Uses `cached_network_image` to optimize image loading and improve performance.
 - **Responsive Design:**  Utilizes `flutter_screenutil` for a consistent UI experience across different screen sizes.
 
-## Project Structure
-
-lib/
-├── config/
-│   ├── language/
-│   ├── routes/
-│   └── themeing/
-├── core/
-│   ├── api/
-│   ├── cache/
-│   ├── errors/
-│   ├── network/
-│   └── utils/
-└── features/
-└── products/
-├── data/
-├── domain/
-└── presentation/
-├── bloc/
-├── pages/
-└── widgets/
 
 ## Screenshots
 
