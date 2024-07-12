@@ -1,9 +1,10 @@
 class ProductModel {
   ProductModel({
-      this.products, 
-      this.total, 
-      this.skip, 
-      this.limit,});
+    this.products,
+    this.total,
+    this.skip,
+    this.limit,
+  });
 
   ProductModel.fromJson(dynamic json) {
     if (json['products'] != null) {
@@ -16,6 +17,7 @@ class ProductModel {
     skip = json['skip'];
     limit = json['limit'];
   }
+
   List<Products>? products;
   int? total;
   int? skip;
@@ -31,33 +33,33 @@ class ProductModel {
     map['limit'] = limit;
     return map;
   }
-
 }
 
 class Products {
   Products({
-      this.id, 
-      this.title, 
-      this.description, 
-      this.category, 
-      this.price, 
-      this.discountPercentage, 
-      this.rating, 
-      this.stock, 
-      this.tags, 
-      this.brand, 
-      this.sku, 
-      this.weight, 
-      this.dimensions, 
-      this.warrantyInformation, 
-      this.shippingInformation, 
-      this.availabilityStatus, 
-      this.reviews, 
-      this.returnPolicy, 
-      this.minimumOrderQuantity, 
-      this.meta, 
-      this.images, 
-      this.thumbnail,});
+    this.id,
+    this.title,
+    this.description,
+    this.category,
+    this.price,
+    this.discountPercentage,
+    this.rating,
+    this.stock,
+    this.tags,
+    this.brand,
+    this.sku,
+    this.weight,
+    this.dimensions,
+    this.warrantyInformation,
+    this.shippingInformation,
+    this.availabilityStatus,
+    this.reviews,
+    this.returnPolicy,
+    this.minimumOrderQuantity,
+    this.meta,
+    this.images,
+    this.thumbnail,
+  });
 
   Products.fromJson(dynamic json) {
     id = json['id'];
@@ -72,7 +74,9 @@ class Products {
     brand = json['brand'];
     sku = json['sku'];
     weight = json['weight'];
-    dimensions = json['dimensions'] != null ? Dimensions.fromJson(json['dimensions']) : null;
+    dimensions = json['dimensions'] != null
+        ? Dimensions.fromJson(json['dimensions'])
+        : null;
     warrantyInformation = json['warrantyInformation'];
     shippingInformation = json['shippingInformation'];
     availabilityStatus = json['availabilityStatus'];
@@ -88,6 +92,7 @@ class Products {
     images = json['images'] != null ? json['images'].cast<String>() : [];
     thumbnail = json['thumbnail'];
   }
+
   int? id;
   String? title;
   String? description;
@@ -143,15 +148,15 @@ class Products {
     map['thumbnail'] = thumbnail;
     return map;
   }
-
 }
 
 class Meta {
   Meta({
-      this.createdAt, 
-      this.updatedAt, 
-      this.barcode, 
-      this.qrCode,});
+    this.createdAt,
+    this.updatedAt,
+    this.barcode,
+    this.qrCode,
+  });
 
   Meta.fromJson(dynamic json) {
     createdAt = json['createdAt'];
@@ -159,6 +164,7 @@ class Meta {
     barcode = json['barcode'];
     qrCode = json['qrCode'];
   }
+
   String? createdAt;
   String? updatedAt;
   String? barcode;
@@ -172,16 +178,16 @@ class Meta {
     map['qrCode'] = qrCode;
     return map;
   }
-
 }
 
 class Reviews {
   Reviews({
-      this.rating, 
-      this.comment, 
-      this.date, 
-      this.reviewerName, 
-      this.reviewerEmail,});
+    this.rating,
+    this.comment,
+    this.date,
+    this.reviewerName,
+    this.reviewerEmail,
+  });
 
   Reviews.fromJson(dynamic json) {
     rating = json['rating'];
@@ -190,6 +196,7 @@ class Reviews {
     reviewerName = json['reviewerName'];
     reviewerEmail = json['reviewerEmail'];
   }
+
   int? rating;
   String? comment;
   String? date;
@@ -205,20 +212,21 @@ class Reviews {
     map['reviewerEmail'] = reviewerEmail;
     return map;
   }
-
 }
 
 class Dimensions {
   Dimensions({
-      this.width, 
-      this.height, 
-      this.depth,});
+    this.width,
+    this.height,
+    this.depth,
+  });
 
   Dimensions.fromJson(dynamic json) {
     width = json['width'];
     height = json['height'];
     depth = json['depth'];
   }
+
   num? width;
   num? height;
   num? depth;
@@ -230,5 +238,4 @@ class Dimensions {
     map['depth'] = depth;
     return map;
   }
-
 }

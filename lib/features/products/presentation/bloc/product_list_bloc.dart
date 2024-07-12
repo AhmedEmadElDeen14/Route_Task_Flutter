@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 import 'package:route_task_flutter/core/errors/failure.dart';
-import 'package:route_task_flutter/features/products/data/models/ProductModel.dart';
+import 'package:route_task_flutter/features/products/data/models/product_model.dart';
 import 'package:route_task_flutter/features/products/domain/use_cases/get_product_list_use_case.dart';
 
 part 'product_list_event.dart';

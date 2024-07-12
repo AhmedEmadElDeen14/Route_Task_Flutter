@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:route_task_flutter/core/api/api_manager.dart';
 import 'package:route_task_flutter/core/utils/app_colors.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:route_task_flutter/core/utils/app_images.dart';
 import 'package:route_task_flutter/features/products/data/data_sources/product_list_ds_impl.dart';
 import 'package:route_task_flutter/features/products/data/repositories/product_list_repo_impl.dart';
 import 'package:route_task_flutter/features/products/domain/use_cases/get_product_list_use_case.dart';
@@ -31,7 +32,7 @@ class ProductListScreen extends StatelessWidget {
             showDialog(
               context: context,
               builder: (context) => AlertDialog(
-                title: Text("Error"),
+                title: const Text("Error"),
                 content: Text(state.failures?.message ?? "An error occurred."),
               ),
             );
@@ -47,11 +48,11 @@ class ProductListScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Image(
-                    image: AssetImage("assets/images/logo.png"),
+                    image: const AssetImage(AppImages.routeImage),
                     height: 22.h,
                     width: 66.w,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   Row(
@@ -65,9 +66,10 @@ class ProductListScreen extends StatelessWidget {
                           ),
                           child: TextFormField(
                             decoration: InputDecoration(
-                              border: OutlineInputBorder(
-                                  borderSide: BorderSide.none),
-                              prefixIcon: Icon(
+                              border: const OutlineInputBorder(
+                                borderSide: BorderSide.none,
+                              ),
+                              prefixIcon: const Icon(
                                 Icons.search,
                                 color: AppColors.blueColor,
                                 size: 30,
@@ -81,12 +83,12 @@ class ProductListScreen extends StatelessWidget {
                           ),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 20,
                       ),
                       InkWell(
                         onTap: () {},
-                        child: Icon(
+                        child: const Icon(
                           Icons.shopping_cart_outlined,
                           color: AppColors.blueColor,
                           size: 30,
@@ -97,21 +99,28 @@ class ProductListScreen extends StatelessWidget {
                 ],
               ),
             ),
-            body: Padding(
-              padding: EdgeInsets.all(10.w.h),
-              child: GridView.builder(
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  childAspectRatio: (192 / 237),
-                  crossAxisCount: 2,
-                  mainAxisSpacing: 16.h,
-                  crossAxisSpacing: 16.w,
-                ),
-                itemBuilder: (context, index) {
-                  return ProductItem(products: state.productModel!.products![index]);
-                },
-                itemCount: state.productModel?.products?.length ?? 0,
-              ),
-            ),
+            body: state.screenStatus == ScreenStatus.loading
+                ? const Center(
+                  child: CircularProgressIndicator(
+                      color: AppColors.blueColor,
+                    ),
+                )
+                : Padding(
+                    padding: EdgeInsets.all(10.w.h),
+                    child: GridView.builder(
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        childAspectRatio: (192 / 237),
+                        crossAxisCount: 2,
+                        mainAxisSpacing: 16.h,
+                        crossAxisSpacing: 16.w,
+                      ),
+                      itemBuilder: (context, index) {
+                        return ProductItem(
+                            products: state.productModel!.products![index]);
+                      },
+                      itemCount: state.productModel?.products?.length ?? 0,
+                    ),
+                  ),
           );
         },
       ),
